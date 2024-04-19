@@ -28,8 +28,8 @@ class IntroTileWidget extends StatelessWidget {
     );
     return Container(
       width: Constants.width,
-      height: 500.h,
-      padding: EdgeInsets.only(top: 45.h, left: 20.w),
+      height: 600.h,
+      padding: EdgeInsets.only(top: 220.h, left: 20.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

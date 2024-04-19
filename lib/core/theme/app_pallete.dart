@@ -12,4 +12,13 @@ class AppPallete {
   static const Color greyColor = Colors.grey;
   static const Color errorColor = Colors.redAccent;
   static const Color transparentColor = Colors.transparent;
+
+  static const Color editorBackground = Colors.black12;
+  static const Color keywordColor = Colors.indigo;
+  static const Color seperatorColor = Color(0xbfbdb6b3);
+  static const Color functionNameColor = Colors.tealAccent;
+  static const Color textColor = Color.fromARGB(255, 75, 232, 80);
+  static const Color aboutTextColor2 = Color.fromRGBO(193, 214, 5, 1);
+  static const Color aboutTextColor3 = Color.fromRGBO(135, 140, 141, 1);
+  static const Color aboutTextColor4 = Color.fromRGBO(135, 140, 141, 1);
 }

@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
-import 'package:portfolio_webapp/core/consts/constants.dart';
-import 'package:portfolio_webapp/core/theme/app_pallete.dart';
-import 'package:portfolio_webapp/features/home/presentation/widgets/3d_card_widget.dart';
-import 'package:portfolio_webapp/features/home/presentation/widgets/intro_tile_widget.dart';
+import 'package:portfolio_webapp/features/home/presentation/widgets/about_widget.dart';
+import 'package:portfolio_webapp/features/home/presentation/widgets/contact_widget.dart';
 import 'package:portfolio_webapp/features/home/presentation/widgets/rich_text_widget.dart';
+import 'package:portfolio_webapp/features/home/presentation/widgets/start_widget.dart';
 import 'package:portfolio_webapp/features/home/presentation/widgets/web_app_bar.dart';
 import 'package:portfolio_webapp/features/home/presentation/widgets/work_widget.dart';
-import 'package:timeline_tile/timeline_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -39,6 +36,9 @@ class _HomePageState extends State<HomePage> {
           SliverAppBar(
             expandedHeight: 70.h,
             floating: true,
+            foregroundColor: Colors.white,
+            primary: true,
+            shadowColor: Colors.grey,
             surfaceTintColor: Colors.transparent,
             forceMaterialTransparency: true,
             flexibleSpace: Padding(
@@ -66,102 +66,19 @@ class _HomePageState extends State<HomePage> {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                return Column(
-                  children: [
-                    Stack(
-                      children: [
-                        Align(
-                          alignment: Alignment.center,
-                          child: Container(
-                            width: Constants.width,
-                            height: Constants.height,
-                            color: AppPallete.backgroundColor,
-                            child: Lottie.asset(
-                              'assets/lottie/bg_anim_2.json',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: TimelineTile(
-                              isFirst: true,
-                              afterLineStyle: LineStyle(
-                                  color: Colors.blueAccent, thickness: 2.w),
-                              alignment: TimelineAlign.manual,
-                              axis: TimelineAxis.vertical,
-                              startChild: Container(
-                                height: Constants.height,
-                                padding: EdgeInsets.symmetric(horizontal: 20.w),
-                              ),
-                              beforeLineStyle: LineStyle(
-                                  color: Colors.blueAccent, thickness: 1.5),
-                              indicatorStyle: IndicatorStyle(
-                                  color: Colors.blueAccent,
-                                  indicatorXY: 0.25,
-                                  indicator: Container(
-                                    height: 100.h,
-                                    width: 100.w,
-                                    decoration: const BoxDecoration(
-                                      color: Colors.white,
-                                      shape: BoxShape.circle,
-                                    ),
-                                  )),
-                              lineXY: 0.2,
-                              endChild: IntroTileWidget()),
-                        ),
-                      ],
-                    ),
-                    Stack(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Container(
-                            color: AppPallete.backgroundColor3,
-                            width: Constants.width,
-                            height: Constants.height,
-                            child: Lottie.asset(
-                              'assets/lottie/bg_anim.json',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: TimelineTile(
-                            afterLineStyle: LineStyle(
-                                color: Colors.blueAccent, thickness: 2.w),
-                            alignment: TimelineAlign.manual,
-                            axis: TimelineAxis.vertical,
-                            startChild: Container(
-                              height: Constants.height,
-                              color: Colors.transparent,
-                            ),
-                            beforeLineStyle: LineStyle(
-                              color: Colors.blueAccent,
-                              thickness: 1.5,
-                            ),
-                            indicatorStyle: IndicatorStyle(
-                                color: Colors.blueAccent,
-                                indicatorXY: 0.25,
-                                indicator: Container(
-                                  height: 100.h,
-                                  width: 100.w,
-                                  decoration: const BoxDecoration(
-                                    color: Colors.white,
-                                    shape: BoxShape.circle,
-                                  ),
-                                )),
-                            lineXY: 0.2,
-                            endChild: ThreeDCardWidget(),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                );
+                if (index == 0) {
+                  return StartWidget();
+                } else if (index == 1) {
+                  return WorkWidget();
+                } else if (index == 2) {
+                  return AboutWidget();
+                } else if (index == 3) {
+                  return ContactWidget();
+                } else {
+                  return Container();
+                }
               },
-              childCount: 1,
+              childCount: 4,
             ),
           ),
         ],
@@ -169,3 +86,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+/*
+
+
+
+ */

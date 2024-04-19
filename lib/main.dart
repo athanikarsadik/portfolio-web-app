@@ -42,6 +42,27 @@ class MyApp extends StatelessWidget {
                       border: Border.all(color: Colors.white)),
                 ),
               ],
+              onHoverMouseCursor: SystemMouseCursors.alias,
+              onHoverMouseStylesStack: [
+                MouseStyle(
+                  size: const Size(10, 10),
+                  latency: const Duration(milliseconds: 50),
+                  visibleOnHover: false,
+                  decoration: BoxDecoration(
+                      color: Colors.limeAccent,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.limeAccent)),
+                ),
+                MouseStyle(
+                  size: const Size(40, 40),
+                  latency: const Duration(milliseconds: 200),
+                  visibleOnHover: true,
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.red)),
+                ),
+              ],
               child: const HomePage(),
             ),
           );

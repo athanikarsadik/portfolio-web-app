@@ -10,47 +10,58 @@ class TextWidgetFor3DCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          width: 100.w,
-          child: Text(
-            title,
-            style: GoogleFonts.mulish(
-              textStyle: TextStyle(
-                fontSize: 25.sp,
-                fontWeight: FontWeight.bold,
+    return Container(
+      width: 200.w,
+      height: 360.h,
+      color: Colors.transparent,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 150.w,
+            child: Text(
+              title,
+              softWrap: true,
+              textAlign: TextAlign.left,
+              style: GoogleFonts.mulish(
+                textStyle: TextStyle(
+                  fontSize: 25.sp,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 3,
             ),
-            overflow: TextOverflow.ellipsis,
-            maxLines: 3,
           ),
-        ),
-        SizedBox(
-          height: 10.h,
-        ),
-        Divider(
-          color: Colors.white,
-          thickness: 5,
-        ),
-        SizedBox(
-          height: 10.h,
-        ),
-        SizedBox(
-          width: 100.w,
-          child: Text(
-            index,
-            style: GoogleFonts.mulish(
-              textStyle: TextStyle(
-                fontSize: 25.sp,
-                fontWeight: FontWeight.bold,
+          SizedBox(
+            height: 10.h,
+          ),
+          Divider(
+            color: Colors.white,
+            height: 5,
+            thickness: 5,
+            endIndent: 50.w,
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
+          SizedBox(
+            width: 100.w,
+            child: Text(
+              index,
+              style: GoogleFonts.mulish(
+                textStyle: TextStyle(
+                  fontSize: 25.sp,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 3,
             ),
-            overflow: TextOverflow.ellipsis,
-            maxLines: 3,
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
