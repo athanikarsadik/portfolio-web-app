@@ -53,16 +53,16 @@ class _ThreeDCardWidgetState extends State<ThreeDCardWidget> {
             ..rotateX(x)
             ..rotateY(y),
           child: Container(
-            width: 500,
-            height: 350,
+            width: 500.w,
+            height: 350.h,
             color: Colors.transparent,
             child: Stack(
               children: [
                 Align(
                   alignment: Alignment.center,
                   child: Container(
-                    width: 400,
-                    height: 330,
+                    width: 400.w,
+                    height: 330.h,
                     // padding: EdgeInsets.all(15),
                     clipBehavior: Clip.antiAlias,
                     decoration: BoxDecoration(

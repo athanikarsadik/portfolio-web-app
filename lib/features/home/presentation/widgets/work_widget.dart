@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio_webapp/core/consts/constants.dart';
 import 'package:portfolio_webapp/core/theme/app_pallete.dart';
 import 'package:portfolio_webapp/features/home/presentation/widgets/staggered_grid_view_widget.dart';
 import 'package:timeline_tile/timeline_tile.dart';
@@ -11,35 +10,27 @@ class WorkWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          color: Colors.transparent,
-          width: Constants.width,
-          padding: EdgeInsets.only(left: 40),
-          child: Text(
-            "Work />",
-            style: GoogleFonts.kanit(
-              textStyle: TextStyle(
-                  color: AppPallete.greyColor,
-                  fontSize: 100.sp,
-                  fontWeight: FontWeight.w600),
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            color: Colors.transparent,
+            padding: EdgeInsets.only(left: 40),
+            child: Text(
+              "Work />",
+              style: GoogleFonts.kanit(
+                textStyle: TextStyle(
+                    color: AppPallete.greyColor,
+                    fontSize: 60.sp,
+                    fontWeight: FontWeight.w600),
+              ),
             ),
           ),
-          // height: 4000.h,
-          // child: Lottie.asset(
-          //   'assets/lottie/bg_anim.json',
-          //   fit: BoxFit.cover,
-          // ),
-          // child: Image.asset(
-          //   'assets/images/bg_1.jpg',
-          //   fit: BoxFit.fill,
-          // ),
-        ),
-        Align(alignment: Alignment.center, child: StaggeredGridViewWidget()),
-      ],
+          Align(alignment: Alignment.center, child: StaggeredGridViewWidget()),
+        ],
+      ),
     );
   }
 

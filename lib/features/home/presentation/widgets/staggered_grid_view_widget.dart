@@ -8,8 +8,7 @@ class StaggeredGridViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-        child: GridView.custom(
+    return GridView.custom(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverStairedGridDelegate(
@@ -31,7 +30,7 @@ class StaggeredGridViewWidget extends StatelessWidget {
               child: Container(
                 color: Colors.transparent,
                 child: Lottie.asset(
-                  'assets/lottie/bg_anim_2.json',
+                  'assets/lottie/bg_anim.json',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -43,6 +42,6 @@ class StaggeredGridViewWidget extends StatelessWidget {
           ],
         ),
       ),
-    ));
+    );
   }
 }

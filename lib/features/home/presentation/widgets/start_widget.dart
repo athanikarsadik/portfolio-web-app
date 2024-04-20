@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:portfolio_webapp/core/consts/constants.dart';
 import 'package:portfolio_webapp/core/theme/app_pallete.dart';
+import 'package:portfolio_webapp/features/home/presentation/widgets/animated_image_container.dart';
 import 'package:portfolio_webapp/features/home/presentation/widgets/intro_tile_widget.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
@@ -37,21 +38,7 @@ class StartWidget extends StatelessWidget {
                 // height: Constants.height,
                 // color: Colors.white,
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: Column(
-                  children: [
-                    Container(
-                      height: 300.h,
-                      margin: EdgeInsets.all(20.sp),
-                      clipBehavior: Clip.hardEdge,
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/photo.jpeg'),
-                              fit: BoxFit.contain),
-                          color: Colors.transparent),
-                    )
-                  ],
-                ),
+                child: AnimatedImageContainer(),
               ),
               beforeLineStyle:
                   const LineStyle(color: Colors.blueAccent, thickness: 1.5),

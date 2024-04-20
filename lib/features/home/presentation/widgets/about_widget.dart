@@ -78,34 +78,41 @@ class _AboutWidgetState extends State<AboutWidget> {
   Widget build(BuildContext context) {
     return Container(
       color: AppPallete.editorBackground,
-      padding: EdgeInsets.only(left: 30.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "About />",
-            style: GoogleFonts.kanit(
-              textStyle: TextStyle(
-                  color: AppPallete.greyColor,
-                  fontSize: 60.sp,
-                  fontWeight: FontWeight.w600),
+      // padding: EdgeInsets.only(left: 30.w),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "About />",
+              style: GoogleFonts.kanit(
+                textStyle: TextStyle(
+                    color: AppPallete.greyColor,
+                    fontSize: 60.sp,
+                    fontWeight: FontWeight.w600),
+              ),
             ),
-          ),
-          CodeField(
-            controller: _codeController!,
-            padding: EdgeInsets.only(left: 230.w),
-            wrap: true,
-            readOnly: true,
-            lineNumberStyle: LineNumberStyle(
-                width: 320.w,
-                margin: 0,
-                textAlign: TextAlign.right,
-                textStyle: const TextStyle(color: Color(0xff8E69C9))),
-            textStyle: const TextStyle(fontFamily: 'SourceCode'),
-            // enabled: false,
-            background: Colors.transparent,
-          ),
-        ],
+            CodeField(
+              controller: _codeController!,
+              // padding: EdgeInsets.only(left: 230.w),
+              enabled: true,
+              isDense: true,
+              smartQuotesType: SmartQuotesType.enabled,
+              wrap: true,
+              readOnly: true,
+              horizontalScroll: true,
+              lineNumberStyle: LineNumberStyle(
+                  width: 200.w,
+                  margin: 0,
+                  textAlign: TextAlign.right,
+                  textStyle: const TextStyle(color: Color(0xff8E69C9))),
+              textStyle: const TextStyle(fontFamily: 'SourceCode'),
+              // enabled: false,
+              background: Colors.transparent,
+            ),
+          ],
+        ),
       ),
     );
   }

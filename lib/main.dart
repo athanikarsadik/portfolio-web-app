@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mouse_follower/mouse_follower.dart';
 import 'package:portfolio_webapp/core/consts/constants.dart';
 import 'package:portfolio_webapp/core/theme/themes.dart';
+import 'package:portfolio_webapp/features/home/presentation/bloc/home_bloc.dart';
 import 'package:portfolio_webapp/features/home/presentation/pages/home_page.dart';
+import 'package:portfolio_webapp/init_dependencies.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  await initDependencies();
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(
+        create: (_) => serviceLocator<HomeBloc>(),
+      ),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

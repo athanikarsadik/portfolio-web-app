@@ -5,7 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 class RichTextWidget extends StatelessWidget {
   final String title;
   final double? size;
-  const RichTextWidget({super.key, required this.title, this.size});
+  final Color? color;
+  const RichTextWidget({super.key, required this.title, this.size, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class RichTextWidget extends StatelessWidget {
             text: title,
             style: GoogleFonts.notoSerif(
               textStyle: TextStyle(
-                  color: Colors.white,
+                  color: color ?? Colors.white,
                   fontSize: size != null ? size : 20.sp,
                   fontWeight: FontWeight.bold),
             ),
