@@ -1,5 +1,6 @@
 import 'package:code_text_field/code_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:highlight/languages/dart.dart';
@@ -20,7 +21,7 @@ class _AboutWidgetState extends State<AboutWidget> {
   @override
   void initState() {
     super.initState();
-    const source = Constants.aboutMe;
+    final source = Constants.about();
     // Instantiate the CodeController
     _codeController = CodeController(
       text: source,
@@ -32,37 +33,71 @@ class _AboutWidgetState extends State<AboutWidget> {
         TabModifier(),
       ],
       patternMap: {
-        r'0123456789': const TextStyle(color: Colors.red),
-        r'".*"': const TextStyle(color: Colors.red),
-        r"'.*'": const TextStyle(color: AppPallete.textColor),
-        r',;.-': const TextStyle(color: AppPallete.seperatorColor),
+        r'".*"': const TextStyle(color: AppPallete.textColor),
+        r',;.-:"': const TextStyle(color: AppPallete.seperatorColor),
         r'//.*': const TextStyle(
             color: Color(0xff494B4D), fontWeight: FontWeight.w300),
       },
       stringMap: {
-        "List": const TextStyle(
+        "_name": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.variableColor),
+        "_philosophy": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.variableColor),
+        "_gender": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.variableColor),
+        "_age": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.variableColor),
+        "name": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.variableColor),
+        "philosophy": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.variableColor),
+        "gender": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.variableColor),
+        "age": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.variableColor),
+        "override": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.variableColor),
+        "List": TextStyle(
             fontWeight: FontWeight.w500, color: AppPallete.keywordColor),
-        "dynamic": const TextStyle(
+        "Map": TextStyle(
             fontWeight: FontWeight.w500, color: AppPallete.keywordColor),
-        "this": const TextStyle(
+        "dynamic": TextStyle(
             fontWeight: FontWeight.w500, color: AppPallete.keywordColor),
-        "SadikAthanikar": const TextStyle(
-            fontWeight: FontWeight.w500, color: Colors.cyanAccent),
-        "String": const TextStyle(
-            fontWeight: FontWeight.w500, color: Color(0xffaad94c)),
-        "class": const TextStyle(
-            fontWeight: FontWeight.w500, color: Color(0xffE8341C)),
-        "const": const TextStyle(
+        "this": TextStyle(
             fontWeight: FontWeight.w500, color: AppPallete.keywordColor),
-        "final": const TextStyle(
+        "AboutSadik": TextStyle(
             fontWeight: FontWeight.w500, color: AppPallete.keywordColor),
-        "return": const TextStyle(
+        "AboutSadikAthanikar": TextStyle(
             fontWeight: FontWeight.w500, color: AppPallete.keywordColor),
-        "workExperience": const TextStyle(
+        "String": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.keywordColor),
+        "class": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.keywordColor2),
+        "abstract": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.keywordColor2),
+        "implements": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.keywordColor2),
+        "interface": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.keywordColor2),
+        "const": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.keywordColor2),
+        "final": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.keywordColor2),
+        "return": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.keywordColor2),
+        "trophyCabinet": TextStyle(
             fontWeight: FontWeight.w500, color: AppPallete.functionNameColor),
-        "education": const TextStyle(
+        "learningCurve": TextStyle(
             fontWeight: FontWeight.w500, color: AppPallete.functionNameColor),
-        "skills": const TextStyle(
+        "techStack": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.functionNameColor),
+        "passions": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.functionNameColor),
+        "elevatorPitch": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.functionNameColor),
+        "portfolio": TextStyle(
+            fontWeight: FontWeight.w500, color: AppPallete.functionNameColor),
+        "rechargeMoments": TextStyle(
             fontWeight: FontWeight.w500, color: AppPallete.functionNameColor),
       },
     );
@@ -92,7 +127,13 @@ class _AboutWidgetState extends State<AboutWidget> {
                     fontSize: 60.sp,
                     fontWeight: FontWeight.w600),
               ),
-            ),
+            )
+                .animate()
+                .scale(
+                    duration: Duration(milliseconds: 350), curve: Curves.easeIn)
+                .fadeIn(
+                    duration: Duration(milliseconds: 350),
+                    curve: Curves.fastLinearToSlowEaseIn),
             CodeField(
               controller: _codeController!,
               // padding: EdgeInsets.only(left: 230.w),
@@ -106,11 +147,15 @@ class _AboutWidgetState extends State<AboutWidget> {
                   width: 200.w,
                   margin: 0,
                   textAlign: TextAlign.right,
-                  textStyle: const TextStyle(color: Color(0xff8E69C9))),
-              textStyle: const TextStyle(fontFamily: 'SourceCode'),
+                  textStyle: const TextStyle(
+                      color: Color.fromARGB(255, 134, 105, 201))),
+              textStyle: GoogleFonts.inter(
+                  textStyle: TextStyle(fontFamily: 'SourceCode')),
               // enabled: false,
-              background: Colors.transparent,
-            ),
+              background: AppPallete.editorBackground,
+            ).animate().slideX(
+                duration: Duration(milliseconds: 350),
+                curve: Curves.fastEaseInToSlowEaseOut),
           ],
         ),
       ),

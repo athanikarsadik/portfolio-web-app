@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio_webapp/features/home/presentation/bloc/home_bloc.dart';
@@ -8,6 +9,8 @@ import 'package:portfolio_webapp/features/home/presentation/widgets/rich_text_wi
 import 'package:portfolio_webapp/features/home/presentation/widgets/start_widget.dart';
 import 'package:portfolio_webapp/features/home/presentation/widgets/web_app_bar.dart';
 import 'package:portfolio_webapp/features/home/presentation/widgets/work_widget.dart';
+
+import '../widgets/on_hover_text_animation.dart';
 
 class HomePage extends StatefulWidget {
   static int pageIndex = 0;
@@ -23,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: Drawer(),
+        // drawer: Drawer(),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           surfaceTintColor: Colors.transparent,
@@ -37,21 +40,21 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.blueAccent,
                     fontSize: 30.sp,
                   )),
-              RichTextWidget(
-                title: "SaD!k",
-                size: 50.sp,
-              ),
+              OnHoverText(builder: (isHovered) {
+                return RichTextWidget(
+                  title: "SaD!k",
+                  size: 40.sp,
+                ).animate().fade();
+              }),
             ],
           ),
-          actions: [WebAppBar()],
+          actions: [WebAppBar().animate().fade()],
         ),
         body: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
             if (state is HomeInitialState) {
               return SingleChildScrollView(
-                child: Column(
-                  children: [pages[state.curPageIndex]],
-                ),
+                child: Column(children: [pages[state.curPageIndex]]),
               );
             } else {
               return Container(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio_webapp/core/theme/app_pallete.dart';
 import 'package:portfolio_webapp/features/home/presentation/widgets/on_hover_text_animation.dart';
 
 class IconAndTextWidget extends StatelessWidget {
@@ -17,7 +16,7 @@ class IconAndTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OnHoverText(builder: (isHovered) {
-      final color = isHovered ? AppPallete.gradient2 : Colors.grey;
+      final color = isHovered ? Colors.cyanAccent : Colors.grey;
       return Row(
         children: [
           Container(

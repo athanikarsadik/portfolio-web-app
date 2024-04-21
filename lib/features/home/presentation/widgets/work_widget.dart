@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_webapp/core/theme/app_pallete.dart';
@@ -26,7 +27,11 @@ class WorkWidget extends StatelessWidget {
                     fontSize: 60.sp,
                     fontWeight: FontWeight.w600),
               ),
-            ),
+            )
+                .animate()
+                .scale(
+                    duration: Duration(milliseconds: 350), curve: Curves.easeIn)
+                .fadeIn(duration: Duration(milliseconds: 350)),
           ),
           Align(alignment: Alignment.center, child: StaggeredGridViewWidget()),
         ],

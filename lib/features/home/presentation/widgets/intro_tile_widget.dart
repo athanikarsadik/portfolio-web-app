@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_webapp/core/consts/constants.dart';
@@ -46,30 +47,58 @@ class IntroTileWidget extends StatelessWidget {
           SizedBox(
             height: 20.h,
           ),
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: "Hi, my name is, ",
-                  style: GoogleFonts.notoSerif(
-                    textStyle: TextStyle(
-                        color: Colors.white,
-                        fontSize: 50.sp,
-                        fontWeight: FontWeight.bold),
-                  ),
+          Row(
+            children: [
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Hi, my name is, ",
+                      style: GoogleFonts.notoSerif(
+                        textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: 50.sp,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    // TextSpan(
+                    //   text: "Sadik Athanikar",
+                    //   style: GoogleFonts.mulish(
+                    //     textStyle: TextStyle(
+                    //         backgroundColor: AppPallete.backgroundColor,
+                    //         color: Colors.cyanAccent,
+                    //         fontSize: 50.sp,
+                    //         fontWeight: FontWeight.bold),
+                    //   ),
+                    // ),
+                  ],
                 ),
-                TextSpan(
-                  text: "Sadik Athanikar",
-                  style: GoogleFonts.mulish(
-                    textStyle: TextStyle(
-                        backgroundColor: AppPallete.backgroundColor,
-                        color: Colors.cyanAccent,
-                        fontSize: 50.sp,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
+              ),
+              AnimatedTextKit(
+                      isRepeatingAnimation: true,
+                      repeatForever: true,
+                      animatedTexts: [
+                    ColorizeAnimatedText(
+                      colors: colorizeColors,
+                      textStyle: GoogleFonts.mulish(
+                        textStyle: TextStyle(
+                            backgroundColor: AppPallete.backgroundColor,
+                            color: Colors.cyanAccent,
+                            fontSize: 50.sp,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      speed: const Duration(milliseconds: 180),
+                      'Sadik Athanikar',
+                    ),
+                  ])
+                  .animate()
+                  .slideX(
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.fastLinearToSlowEaseIn)
+                  .fadeIn(
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.fastLinearToSlowEaseIn),
+            ],
           ),
           SizedBox(
             height: 10.h,
@@ -152,7 +181,10 @@ class IntroTileWidget extends StatelessWidget {
               ),
             )
           ])
-        ],
+        ]
+            .animate()
+            .slideY(curve: Curves.ease)
+            .fadeIn(duration: Duration(milliseconds: 350)),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:lottie/lottie.dart';
 import 'package:portfolio_webapp/features/home/presentation/widgets/3d_card_widget.dart';
@@ -37,7 +38,12 @@ class StaggeredGridViewWidget extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.center,
-              child: ThreeDCardWidget(),
+              child: ThreeDCardWidget()
+                  .animate()
+                  .slideX(
+                      duration: Duration(milliseconds: 350),
+                      curve: Curves.decelerate)
+                  .fadeIn(),
             )
           ],
         ),

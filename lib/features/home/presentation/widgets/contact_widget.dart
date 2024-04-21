@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_webapp/core/consts/constants.dart';
@@ -26,7 +27,13 @@ class ContactWidget extends StatelessWidget {
                   fontSize: 60.sp,
                   fontWeight: FontWeight.w600),
             ),
-          ),
+          )
+              .animate()
+              .scale(
+                  duration: Duration(milliseconds: 350), curve: Curves.easeIn)
+              .fadeIn(
+                  duration: Duration(milliseconds: 350),
+                  curve: Curves.fastLinearToSlowEaseIn),
           Expanded(
             child: Padding(
               padding: EdgeInsets.only(left: 350.w),
@@ -101,7 +108,14 @@ class ContactWidget extends StatelessWidget {
                       //   width: 150,
                       //   color: Colors.red,
                       // )
-                    ],
+                    ]
+                        .animate()
+                        .scale(
+                            duration: Duration(milliseconds: 350),
+                            curve: Curves.easeIn)
+                        .fadeIn(
+                            duration: Duration(milliseconds: 350),
+                            curve: Curves.fastLinearToSlowEaseIn),
                   )
                 ],
               ),

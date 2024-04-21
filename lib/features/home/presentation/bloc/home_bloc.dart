@@ -11,7 +11,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeEvent>((event, emit) {});
 
     on<AppBarClickEvent>((event, emit) {
-      print("hello");
       emit(HomeInitialState(curPageIndex: event.index));
     });
   }

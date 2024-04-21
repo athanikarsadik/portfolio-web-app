@@ -14,12 +14,15 @@ class ThreeDCardWidget extends StatefulWidget {
 class _ThreeDCardWidgetState extends State<ThreeDCardWidget> {
   double x = 0;
   double y = 0;
-  double amplitude = 0.3;
+  double amplitude = 0.34;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: MouseRegion(
+        onEnter: (event) {
+          setState(() {});
+        },
         onHover: (details) {
           if (y - details.delta.dx < 0) {
             setState(() {

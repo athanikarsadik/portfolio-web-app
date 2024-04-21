@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:portfolio_webapp/core/consts/constants.dart';
@@ -39,7 +40,12 @@ class StartWidget extends StatelessWidget {
                 // color: Colors.white,
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: AnimatedImageContainer(),
-              ),
+              )
+                  .animate()
+                  .slideX(
+                    delay: Duration(milliseconds: 350),
+                  )
+                  .fade(duration: Duration(milliseconds: 300)),
               beforeLineStyle:
                   const LineStyle(color: Colors.blueAccent, thickness: 1.5),
               indicatorStyle: IndicatorStyle(
